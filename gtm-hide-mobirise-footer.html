@@ -1,0 +1,30 @@
+<!--
+  TAG PERSONALIZADA - Google Tag Manager
+  Nome sugerido: "Ocultar Footer Mobirise"
+  Tipo: HTML Personalizado
+  Acionador: Todas as Páginas
+
+  Cole o código abaixo no campo "HTML" da tag no GTM:
+-->
+
+<script>
+(function () {
+  function hideMobiriseFooter() {
+    var links = document.querySelectorAll(
+      'a[href*="mobiri.se"], a[href*="mobirise.com"]'
+    );
+    for (var i = 0; i < links.length; i++) {
+      var section = links[i].closest('section.display-7');
+      if (section) {
+        section.style.setProperty('display', 'none', 'important');
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideMobiriseFooter);
+  } else {
+    hideMobiriseFooter();
+  }
+})();
+</script>
